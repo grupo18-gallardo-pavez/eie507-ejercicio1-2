@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+/* funcion que genera y debuelve numeros aleatorios */
+int * getRandom(){
+  static int r[10];
+  int i;
+  /* hacer una semilla*/
+  srand ((unsigned)time(NULL));
+  for ( i =0; i<10; ++i){
+    r[i]=rand();
+    printf("r[%d]=%d\n", i, r[i]);
+  } 
+  return r;
+}  
+/*funcion principal para llamar la funcion definida */
+int main(){
+ /* puntero en int*/
+ int *p;
+ int i;
+ p=getRandom();
+ for (i=0;i<10;i++){
+  printf("*(p+%d): %d\n",i,*(p+i));
+ }
+return 0;
+}
+
